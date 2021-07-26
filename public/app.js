@@ -1,6 +1,7 @@
 const API_URL = "https://randomuser.me/api/";
 
 const identityContainer = document.querySelector(".identity-container");
+const refreshButton = document.querySelector("#refresh-btn");
 
 const capFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -51,4 +52,5 @@ const showIdentity = async () => {
 </div>
   `;
 };
+refreshButton.addEventListener("click", () => location.reload());
 window.onload = showIdentity();

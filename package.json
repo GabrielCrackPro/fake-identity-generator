@@ -1,0 +1,29 @@
+{
+  "name": "fake-identity-generator",
+  "version": "1.0.0",
+  "description": "Web application that provides a fake identity with all the needed info",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielCrackPro/fake-identity-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielCrackPro/fake-identity-generator/issues"
+  },
+  "homepage": "https://github.com/GabrielCrackPro/fake-identity-generator#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

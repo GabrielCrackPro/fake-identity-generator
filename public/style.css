@@ -9,3 +9,21 @@ p:hover {
 .card {
   box-shadow: #422470 0px 0px 10px;
 }
+.img-overlay {
+  display: none;
+  top: 0;
+  width: 638px;
+  height: 250px;
+  background: #422470;
+  opacity: 0.4;
+}
+.img-overlay button {
+  top: 15%;
+  left: 40%;
+  font-size: 100px;
+  background: #422470;
+}
+.img-container:hover .img-overlay {
+  display: block;
+  cursor: pointer;
+}

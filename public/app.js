@@ -9,6 +9,11 @@ const capFirstLetter = (string) => {
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString();
 };
+const downloadImage = async (url) => {
+  let data = await fetch(url).then((response) => response.blob());
+  let file = new File([data], "image.jpg", { type: "image/jpeg" });
+  return file;
+};
 const getIdentity = async () => {
   let data = await fetch(API_URL).then((response) => response.json());
   return data;
@@ -18,6 +23,7 @@ const showIdentity = async () => {
   let identity = data.results[0];
   const person = {
     name: `${identity.name.first} ${identity.name.last}`,
+    image: identity.picture.large,
     gender: capFirstLetter(identity.gender),
     birth: formatDate(identity.dob.date),
     phone: identity.cell,
@@ -39,10 +45,14 @@ const showIdentity = async () => {
 
   identityContainer.innerHTML = `
   <div class="card rounded rounded-3 text-white bg-primary" style="width: 40rem;">
-  <img src="${
-    identity.picture.large
-  }" class="card-img-top" width="150" height=250" alt="face">
-  <div class="card-body">
+  <div class="img-container">
+ <img src="${
+   person.image
+ }" class="card-img-top" width="150" height=250" alt="face">
+  <div class="img-overlay position-absolute">
+  <button class="btn position-absolute download-img-btn"><i class="fas fa-download"></i></button>
+  </div>
+  </div>
     <h5 class="card-title">${person.name}</h5>
   <h5 class="text-center"><i class="fas fa-user-lock"></i> Personal Information</h5>
     <p>Gender: ${person.gender}</p>
@@ -60,6 +70,8 @@ const showIdentity = async () => {
 </div>
 `;
   const cardText = identityContainer.querySelectorAll("p");
+  const downloadButton = identityContainer.querySelector(".download-img-btn");
+
   cardText.forEach((text) => {
     text.addEventListener("click", () => {
       text.innerHTML.select;
@@ -70,6 +82,7 @@ const showIdentity = async () => {
       }, 1000);
     });
   });
+  downloadButton.addEventListener("click", () => downloadImage(person.image));
 };
 refreshButton.addEventListener("click", () => location.reload());
 window.onload = showIdentity();

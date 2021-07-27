@@ -15,5 +15,5 @@ Web application that provides a fake identity with all the needed info
   - [x] Birth Date
   - [x] Phone Number
   - [x] Location
-- [ ] Add animations
+- [x] Add animations
 - [x] Deploy 🌏

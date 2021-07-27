@@ -50,7 +50,18 @@ const showIdentity = async () => {
   <p>Coordinates: Long ${person.location.coordinates.long} Lat ${person.location.coordinates.lat}</p>
   </div>
 </div>
-  `;
+`;
+  const cardText = identityContainer.querySelectorAll("p");
+  cardText.forEach((text) => {
+    text.addEventListener("click", () => {
+      text.innerHTML.select;
+      document.execCommand("copy");
+      text.innerHTML += "  Copied";
+      setTimeout(() => {
+        text.innerHTML = text.innerHTML.replace("  Copied", "");
+      }, 1000);
+    });
+  });
 };
 refreshButton.addEventListener("click", () => location.reload());
 window.onload = showIdentity();

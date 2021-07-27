@@ -1,3 +1,7 @@
 * {
   font-family: "Barlow Condensed", sans-serif;
 }
+p:hover {
+  background: #422470;
+  cursor: pointer;
+}

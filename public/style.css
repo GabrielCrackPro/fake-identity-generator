@@ -14,7 +14,7 @@ p:hover {
   top: 0;
   width: 638px;
   height: 250px;
-  background: #422470;
+  background: #fff;
   opacity: 0.4;
   pointer-events: none;
 }
@@ -22,9 +22,13 @@ p:hover {
   top: 15%;
   left: 40%;
   font-size: 100px;
-  background: #422470;
+  background: #fff;
+}
+.img-overlay button i {
+  color: #422470;
 }
 .img-container:hover .img-overlay {
   display: block;
+  transition: all 0.3s ease;
   cursor: pointer;
 }

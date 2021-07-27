@@ -21,7 +21,10 @@ const showIdentity = async () => {
     gender: capFirstLetter(identity.gender),
     birth: formatDate(identity.dob.date),
     phone: identity.cell,
-    email: identity.email,
+    email: {
+      address: identity.email.split("@")[0],
+      domain: ["@gmail.com", "@yahoo.com", "@outlook.com"],
+    },
     location: {
       country: identity.location.country,
       state: identity.location.state,
@@ -32,22 +35,27 @@ const showIdentity = async () => {
       },
     },
   };
-  console.log(identity);
+  const randomIndex = Math.floor(Math.random() * person.email.domain.length);
+
   identityContainer.innerHTML = `
   <div class="card rounded rounded-3 text-white bg-primary" style="width: 40rem;">
-  <img src="${identity.picture.large}" class="card-img-top" width="150" height=250" alt="face">
+  <img src="${
+    identity.picture.large
+  }" class="card-img-top" width="150" height=250" alt="face">
   <div class="card-body">
     <h5 class="card-title">${person.name}</h5>
   <h5 class="text-center"><i class="fas fa-user-lock"></i> Personal Information</h5>
     <p>Gender: ${person.gender}</p>
     <p>Birth Date: ${person.birth}</p>
     <p>Phone Number: ${person.phone}</p>
-    <p>Email: ${person.email}</p>
+    <p>Email: ${person.email.address + person.email.domain[randomIndex]}</p>
   <h5 class="text-center"><i class="fas fa-map-marker-alt"></i> Location</h5>
   <p>Country: ${person.location.country}</p>
   <p>State/Province: ${person.location.state}</p>
   <p>Street: ${person.location.street}</p>
-  <p>Coordinates: Long ${person.location.coordinates.long} Lat ${person.location.coordinates.lat}</p>
+  <p>Coordinates: Long ${person.location.coordinates.long} Lat ${
+    person.location.coordinates.lat
+  }</p>
   </div>
 </div>
 `;

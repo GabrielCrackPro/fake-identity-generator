@@ -4,4 +4,8 @@
 p:hover {
   background: #422470;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.card {
+  box-shadow: #422470 0px 0px 10px;
 }

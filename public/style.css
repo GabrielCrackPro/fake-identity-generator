@@ -16,6 +16,7 @@ p:hover {
   height: 250px;
   background: #422470;
   opacity: 0.4;
+  pointer-events: none;
 }
 .img-overlay button {
   top: 15%;

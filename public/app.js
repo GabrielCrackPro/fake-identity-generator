@@ -9,11 +9,6 @@ const capFirstLetter = (string) => {
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString();
 };
-const downloadImage = async (url) => {
-  let data = await fetch(url).then((response) => response.blob());
-  let file = new File([data], "image.jpg", { type: "image/jpeg" });
-  return file;
-};
 const getIdentity = async () => {
   let data = await fetch(API_URL).then((response) => response.json());
   return data;
@@ -46,9 +41,9 @@ const showIdentity = async () => {
   identityContainer.innerHTML = `
   <div class="card rounded rounded-3 text-white bg-primary" style="width: 40rem;">
   <div class="img-container">
- <img src="${
-   person.image
- }" class="card-img-top" width="150" height=250" alt="face">
+  <a href="${person.image}" target="blank" download><img src="${
+    person.image
+  }" class="card-img-top" width="150" height=250" alt="face"></a>
   <div class="img-overlay position-absolute">
   <button class="btn position-absolute download-img-btn"><i class="fas fa-download"></i></button>
   </div>
@@ -70,7 +65,6 @@ const showIdentity = async () => {
 </div>
 `;
   const cardText = identityContainer.querySelectorAll("p");
-  const downloadButton = identityContainer.querySelector(".download-img-btn");
 
   cardText.forEach((text) => {
     text.addEventListener("click", () => {
@@ -82,7 +76,6 @@ const showIdentity = async () => {
       }, 1000);
     });
   });
-  downloadButton.addEventListener("click", () => downloadImage(person.image));
 };
 refreshButton.addEventListener("click", () => location.reload());
 window.onload = showIdentity();

@@ -17,6 +17,7 @@ const showIdentity = async () => {
   let data = await getIdentity();
   let identity = data.results[0];
   const person = {
+    seed: data.info.seed,
     name: `${identity.name.first} ${identity.name.last}`,
     image: identity.picture.large,
     gender: capFirstLetter(identity.gender),
@@ -39,7 +40,7 @@ const showIdentity = async () => {
   const randomIndex = Math.floor(Math.random() * person.email.domain.length);
 
   identityContainer.innerHTML = `
-  <div class="card rounded rounded-3 text-white bg-primary" style="width: 40rem;">
+  <div class="card rounded rounded-3 text-white text-center bg-primary" style="width: 40rem;">
   <div class="img-container">
   <a href="${person.image}" target="blank" download><img src="${
     person.image
@@ -61,6 +62,9 @@ const showIdentity = async () => {
   <p>Coordinates: Long ${person.location.coordinates.long} Lat ${
     person.location.coordinates.lat
   }</p>
+  <a href="https://randomuser.me/api/?seed=${
+    person.seed
+  }" target="blank" class="btn btn-secondary save-button">View JSON File</a>
   </div>
 </div>
 `;

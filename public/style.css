@@ -1,23 +1,63 @@
+/* Global Styles */
 * {
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
 }
+
 p:hover {
   background: #422470;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+  background-image: radial-gradient(#422470 1px, transparent 0);
+  background-size: 30px 30px;
+  background-position: 0 0, 20px 20px;
+}
+
+.navbar {
+  background-color: #593196;
+  padding: 0.5rem;
+}
+
 .card {
   box-shadow: #422470 0px 0px 10px;
+  width: 30rem;
 }
+
+.card-title {
+  font-size: 2rem;
+}
+
+.card-img-top {
+  height: 350px;
+  object-fit: contain;
+  width: 100%;
+}
+.img-container {
+  cursor: pointer;
+  position: relative;
+}
+
 .img-overlay {
-  display: none;
-  top: 0;
-  width: 638px;
-  height: 250px;
   background: #fff;
+  display: none;
+  height: 100%;
   opacity: 0.4;
+
+  position: absolute;
   pointer-events: none;
+  top: 0;
+  width: 100%;
 }
+
 .img-overlay button {
   top: 15%;
   left: 40%;

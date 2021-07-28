@@ -27,38 +27,23 @@
     <title>Fake Identity Generator</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Fake Identity Generator</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <button class="btn btn-primary" id="refresh-btn">
-                <i class="fas fa-sync-alt"></i>
-              </button>
-            </li>
-            <li class="nav-item">
-              <a
-                class="btn btn-primary"
-                href="https://github.com/GabrielCrackPro/fake-identity-generator"
-                target="blank"
-                ><i class="fab fa-github"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <nav class="navbar d-flex justify-content-between">
+      <h2 class="text-white m-0">Fake Identity Generator</h2>
+      <ul class="d-flex icons-container align-items-center">
+        <li>
+          <button class="btn btn-primary" id="refresh-btn">
+            <i class="fas fa-sync-alt"></i>
+          </button>
+        </li>
+        <li>
+          <a
+            class="btn btn-primary"
+            href="https://github.com/GabrielCrackPro/fake-identity-generator"
+            target="blank"
+            ><i class="fab fa-github"></i
+          ></a>
+        </li>
+      </ul>
     </nav>
     <div
       class="
@@ -66,14 +51,58 @@
         d-flex
         align-items-center
         justify-content-center
-        mt-2
       "
-    ></div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+    >
+      <div
+        id="identity-container"
+        class="card rounded rounded-5 text-white text-center bg-primary m-5"
+      >
+        <picture class="img-container">
+          <div class="img-overlay">
+            <button class="btn position-absolute download-img-btn">
+              <i class="fas fa-download"></i>
+            </button>
+          </div>
+          <a class="element" id="imageLink" href="" target="_blank">
+            <img
+              id="image"
+              class="element card-img-top"
+              src=""
+              alt="autogenerate"
+            />
+          </a>
+        </picture>
+        <div class="data">
+          <p class="element card-title" id="name">Name</p>
+          <div class="personal-inf">
+            <h5 class="text-center">
+              <i class="fas fa-user-lock"></i> Personal Information
+            </h5>
+            <p class="element" id="gender">gender</p>
+            <p class="element" id="birth">birth date</p>
+            <p class="element" id="phone">Phone number</p>
+            <p class="element" id="email">Email</p>
+          </div>
+          <div class="Location">
+            <h5 class="text-center">
+              <i class="fas fa-map-marker-alt"></i> Location
+            </h5>
+            <p class="element" id="country">Country</p>
+            <p class="element" id="state">State</p>
+            <p class="element" id="street">Street</p>
+            <p class="element" id="coordinates">Coordinates</p>
+          </div>
+        </div>
+        <a
+          class="element btn btn-secondary save-button"
+          id="seed"
+          href=""
+          target="_blank"
+        >
+          View JSON File
+        </a>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
